@@ -57,7 +57,7 @@ services:
     volumes:
       - ./docker/images/mysql:/docker-entrypoint-initdb.d
     environment:
-      MYSQL_ROOT_PASSWORD: Qe32Wp3@197Bpi
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     networks:
       web-network:
 

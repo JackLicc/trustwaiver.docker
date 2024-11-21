@@ -11,7 +11,7 @@ services:
     tty: true
     depends_on:
       - beanstalkd
-      - mysql
+      - mariadb
       - redis
       - feapp
     volumes:
@@ -47,15 +47,15 @@ services:
       web-network:
 
 
-  mysql:
+  mariadb:
     build:
-      context: ./docker/images/mysql
-    container_name: mysql
+      context: ./docker/images/mariadb
+    container_name: mariadb
     tty: true
     ports:
       - "3306:3306"
     volumes:
-      - ./docker/images/mysql:/docker-entrypoint-initdb.d
+      - ./docker/images/mariadb:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     networks:

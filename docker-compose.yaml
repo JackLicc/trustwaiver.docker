@@ -27,9 +27,6 @@ services:
       - "443:443"
     networks:
       web-network:
-        aliases:
-          - ${BE_URL}
-          - ${FE_URL}
 
   feapp:
     build:

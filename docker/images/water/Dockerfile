@@ -72,8 +72,7 @@ RUN apk add --update --no-cache python3 && \
     ln -sf python3 /usr/bin/python && \
     apk add py3-pip
 
-RUN curl -s https://getcomposer.org/installer | php
-RUN mv composer.phar /usr/local/bin/composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN addgroup -g 1000 app && \
     addgroup nginx app && \
